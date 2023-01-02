@@ -16,7 +16,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float fallMultiplier = 2.5f , lowJumpMultiplier = 3f;
 
-    private bool canJump;
+    [SerializeField]
+    private float airMovementSpeed;
+    
+    [SerializeField]
+    private GameObject footPos;
+
+    private bool canJump, canMove;
 
     private float movementVector;
 
@@ -51,7 +57,12 @@ public class PlayerMovement : MonoBehaviour
     {
         /*moveVector = new Vector2(moveSpeed, penguRb.velocity.y);
         penguRb.MovePosition(penguRb.position + moveVector*movementVector * Time.deltaTime);*/
-        transform.position = new Vector2(transform.position.x + moveSpeed * movementVector * Time.deltaTime, transform.position.y);
+        
+        if (canMove)
+        {
+            transform.position = new Vector2(transform.position.x + moveSpeed * movementVector * Time.deltaTime, transform.position.y);
+        }
+      
     }
 
     void AnimatePlayer()
@@ -85,18 +96,38 @@ public class PlayerMovement : MonoBehaviour
         if (penguRb.velocity.y < 0)
         {
             penguRb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+            transform.position = new Vector2(transform.position.x + airMovementSpeed * movementVector * Time.deltaTime, transform.position.y);
+            canMove = false;
         }
         if (penguRb.velocity.y > 0)
         {
             penguRb.velocity += Vector2.up * Physics2D.gravity *(lowJumpMultiplier - 1)* Time.deltaTime;
+            canMove = true;
 
         }
     }
 
     void CheckFootStat()
     {
+        float radius = .3f;
+        RaycastHit2D hit = Physics2D.Raycast(footPos.transform.position,-transform.up,radius,3 << LayerMask.NameToLayer("Ground"));
+        Debug.DrawRay(footPos.transform.position, -transform.up, Color.white);
+
+        if (hit)
+        {
+            canJump = true;
+            canMove = true;
+            Debug.Log(canJump);
+            
+        }
+        else
+        {
+            canJump = false;
+            anim.Play("Jump");
+            Debug.Log(canJump);
+        }
+
         
-        Debug.Log(canJump);
     }
 
     
