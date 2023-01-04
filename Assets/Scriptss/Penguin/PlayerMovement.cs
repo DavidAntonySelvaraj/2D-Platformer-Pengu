@@ -26,24 +26,22 @@ public class PlayerMovement : MonoBehaviour
 
     private float movementVector;
 
-    private Animator anim;
-
     private SpriteRenderer sr;
+
+    private Animator anim;
 
 
     private void Awake()
     {
         penguRb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
     {
         movementVector = Input.GetAxis("Horizontal");
-        AnimatePlayer();
         FlipPlayer();
-        JumpPhysics();
         CheckFootStat();
     }
 
@@ -51,6 +49,8 @@ public class PlayerMovement : MonoBehaviour
     {
         JumpPlayer();
         PlayerMove();
+        JumpPhysics();
+        AnimateWalk();
     }
 
     void PlayerMove()
@@ -65,14 +65,6 @@ public class PlayerMovement : MonoBehaviour
       
     }
 
-    void AnimatePlayer()
-    {
-        if (movementVector != 0)
-            anim.Play("Walk");
-
-        if (movementVector == 0)
-            anim.Play("Idle");
-    }
 
     void FlipPlayer()
     {
@@ -97,11 +89,14 @@ public class PlayerMovement : MonoBehaviour
         {
             penguRb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
             transform.position = new Vector2(transform.position.x + airMovementSpeed * movementVector * Time.deltaTime, transform.position.y);
+            anim.Play("Fall");
             canMove = false;
         }
         if (penguRb.velocity.y > 0)
         {
             penguRb.velocity += Vector2.up * Physics2D.gravity *(lowJumpMultiplier - 1)* Time.deltaTime;
+            anim.SetBool("isIdle", false);
+            anim.SetBool("isJump", true);
             canMove = true;
 
         }
@@ -117,17 +112,35 @@ public class PlayerMovement : MonoBehaviour
         {
             canJump = true;
             canMove = true;
-            Debug.Log(canJump);
             
         }
         else
         {
             canJump = false;
-            anim.Play("Jump");
-            Debug.Log(canJump);
         }
 
         
+    }
+
+    void AnimateWalk()
+    {
+        if (movementVector > 0 || movementVector < 0)
+        {
+            if (penguRb.velocity.y == 0)
+            {
+                anim.SetBool("isJump",false);
+                anim.Play("Walk");
+            }
+        }
+        else
+        {
+            if (penguRb.velocity.y == 0)
+            {
+                anim.SetBool("isIdle",true);
+                anim.Play("Idle");
+            }
+            
+        }
     }
 
     
