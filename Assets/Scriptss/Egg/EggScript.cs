@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class EggScript : MonoBehaviour
 {
-    private float points = 0;
+    private int noOfEggs = 0;
+
+    private int Points;
+
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -16,9 +20,22 @@ public class EggScript : MonoBehaviour
     }
 
 
-    void CalculateEggsCollected()
+    private void CalculateEggsCollected()
     {
-        points = points + 1;
-        Debug.Log(points);
+        noOfEggs = noOfEggs + 1;
+        SetNoEgg(noOfEggs);
+        
     }
+    
+    private float SetNoEgg(int EggsRecieved)
+    {
+        Points = EggsRecieved;
+        return EggsRecieved;
+    }
+
+    public int GetNoEgg()
+    {
+        return Points;
+    }
+
 }

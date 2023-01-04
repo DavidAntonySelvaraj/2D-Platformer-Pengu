@@ -62,6 +62,8 @@ GameObject:
   - component: {fileID: 5913979190340317176}
   - component: {fileID: 5913979190340317177}
   - component: {fileID: 5913979190340317183}
+  - component: {fileID: 31073704}
+  - component: {fileID: 31073711}
   m_Layer: 0
   m_Name: Pengu
   m_TagString: Player
@@ -212,3 +214,31 @@ MonoBehaviour:
   lowJumpMultiplier: 3
   airMovementSpeed: 8.5
   footPos: {fileID: 903334995}
+--- !u!114 &31073704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5913979190340317155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8675a95d9ecb56a479b375f14fd78c7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &31073711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5913979190340317155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f228912f91dfb14284a270f461b969e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxY: 8.76
+  maxX: 17.12
+  minY: -8.37
+  minX: -17.31

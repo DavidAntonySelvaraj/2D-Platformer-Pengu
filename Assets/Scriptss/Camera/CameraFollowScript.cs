@@ -4,26 +4,28 @@ using UnityEngine;
 
 public class CameraFollowScript : MonoBehaviour
 {
-
-    private Transform player;
-
-    private Vector3 tempPos;
+    [SerializeField]
+    private float maxY, maxX, minY, minX;
 
 
-    private void Awake()
+    private void Update()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        OutOfBoundries();
     }
 
-    private void LateUpdate()
+    void OutOfBoundries()
     {
-        if(!player)
-            return;
+        if(transform.position.x > maxX)
+            transform.position = new Vector3(maxX,transform.position.y,transform.position.z);
 
-        tempPos = transform.position;
-        tempPos.x = player.position.x;
-        tempPos.y = player.position.y;
-        transform.position = tempPos;
+        if(transform.position.x < minX)
+            transform.position = new Vector3(minX, transform.position.y, transform.position.z);
+
+        if(transform.position.y < minY)
+            transform.position = new Vector3(transform.position.x, minY, transform.position.z);
+
+        if(transform.position.y > maxY)
+            transform.position = new Vector3(transform.position.x, maxY, transform.position.z);
     }
 
 }//class
