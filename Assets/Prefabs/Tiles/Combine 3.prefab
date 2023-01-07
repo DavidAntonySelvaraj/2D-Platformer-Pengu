@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1684123222268673678}
   - component: {fileID: 2033294801972661937}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: 8
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 802134035096265628}
   - component: {fileID: 9162083594972971995}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: 7
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7724484778162486142}
   - component: {fileID: 7023436737829265870}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: 10
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -262,7 +262,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8818037959912674408}
   - component: {fileID: 1900076217788500575}
-  m_Layer: 0
+  - component: {fileID: 2648757910018388139}
+  m_Layer: 3
   m_Name: Combine 3
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -299,7 +300,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0.11727047, y: 0.26652318}
   m_SpriteTilingProperty:
@@ -314,6 +315,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.7739677, y: 0.46695364}
   m_EdgeRadius: 0
+--- !u!251 &2648757910018388139
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4765937755820790848}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &4800808487436143565
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,7 +344,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6454384946619931894}
   - component: {fileID: 4568208841631214654}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: 11
   m_TagString: Ground
   m_Icon: {fileID: 0}
