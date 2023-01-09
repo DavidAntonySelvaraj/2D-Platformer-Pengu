@@ -684,7 +684,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1917270388158189884, guid: fc940bdbc64d7bd43807780eecbc02fb, type: 3}
       propertyPath: maxNo
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1917270388158189884, guid: fc940bdbc64d7bd43807780eecbc02fb, type: 3}
       propertyPath: eggScript
@@ -2204,7 +2204,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5913979190340317182, guid: 41f94f04cd1303d4f902d9d59f75ed74, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.17825472
+      value: 16.25
       objectReference: {fileID: 0}
     - target: {fileID: 5913979190340317182, guid: 41f94f04cd1303d4f902d9d59f75ed74, type: 3}
       propertyPath: m_LocalPosition.y
