@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class DoorScript : MonoBehaviour
 {
-    [SerializeField]
+    
     private EggScript eggScript;
 
     [SerializeField]
     private float maxNo;
 
+    private void Awake()
+    {
+        eggScript = GameObject.FindWithTag("Player").GetComponent<EggScript>();
+    }
 
     private void Update()
     {
@@ -20,7 +24,8 @@ public class DoorScript : MonoBehaviour
     {
         if (eggScript.GetNoEgg() == maxNo)
         {
-            Debug.Log("Done");
+            Debug.Log("Done"+ eggScript.GetNoEgg());
+            //eggScript.SetNoEgg(0);
             Destroy(gameObject);
         }
     }

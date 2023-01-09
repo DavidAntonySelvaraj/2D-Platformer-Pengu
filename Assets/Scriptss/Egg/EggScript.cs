@@ -27,7 +27,7 @@ public class EggScript : MonoBehaviour
         
     }
     
-    private float SetNoEgg(int EggsRecieved)
+    public float SetNoEgg(int EggsRecieved)
     {
         Points = EggsRecieved;
         return EggsRecieved;
