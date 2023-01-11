@@ -52,9 +52,15 @@ public class ScorpianScript : MonoBehaviour
         //ScorpianRb.velocity = new Vector2(moveSpeed * Time.deltaTime, ScorpianRb.velocity.y);
     }
 
-    
 
-    
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag=="Player")
+        {
+            Destroy(collision.gameObject);
+        }
+    }
 
-    
+
+
 }
